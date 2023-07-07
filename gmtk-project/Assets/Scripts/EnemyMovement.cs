@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public PathFinding PathFound;
-    public TextManager txt;
+    //public TextManager txt;
 
     Node NextNode;
     Node CurrentNode;
@@ -31,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log("/////////////////////////////////////");*/
         if ((PathFound.FinalPath[0].Position == PathFound.TargetPosition.position) || (PathFound.FinalPath[1].Position == PathFound.TargetPosition.position))
         {
-            txt.AddText();
+            //txt.AddText();
             PathFound.FinalPath[0].IsClaimed = false;
             Destroy(gameObject);
         }

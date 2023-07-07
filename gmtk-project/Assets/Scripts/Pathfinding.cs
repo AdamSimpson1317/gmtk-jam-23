@@ -5,7 +5,7 @@ using UnityEngine;
 public class PathFinding : MonoBehaviour
 {
     public Grid grid;
-    public AgentMovement Movement;
+    public EnemyMovement Movement;
     public Transform StartPosition;
     public Transform TargetPosition;
 
