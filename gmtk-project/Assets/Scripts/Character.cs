@@ -9,9 +9,10 @@ public class Character : MonoBehaviour
     public int maxHealth;
     public int atk;
     public int movementPoints;
+    public int atkRange;
     public State state = State.Idle;
 
-    private void Start()
+    public virtual void Start()
     {
         health = maxHealth;
     }
@@ -21,7 +22,7 @@ public class Character : MonoBehaviour
         //Move unit by movement points
     }
 
-    public void Attack(GameObject opponent)
+    public virtual void Attack(GameObject opponent)
     {
         //Attack opponent
         //Get enemy script and use TakeDamage() to remove health
@@ -40,6 +41,11 @@ public class Character : MonoBehaviour
     private void Die()
     {
         Debug.Log("Unit died");
+    }
+
+    public void Test()
+    {
+        Debug.Log("TESTING INHERITENCE");
     }
 
     
