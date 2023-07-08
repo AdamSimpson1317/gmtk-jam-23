@@ -25,6 +25,7 @@ public class Unit : MonoBehaviour
     public void Attack(GameObject opponent)
     {
        //Attack opponent
+       //Get enemy script and use TakeDamage() to remove health
     }
 
     public void TakeDamage(int damage)
@@ -40,11 +41,30 @@ public class Unit : MonoBehaviour
     public void Spot()
     {
         //Spot opponent
+        //Look at radius perimeter and spot the enemy
+        //Access player script to make them visible (while in radius)
     }
 
     private void Die()
     {
         Debug.Log("Unit died");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Check if enemy is in the spot radius
+        if (collision.CompareTag("Enemy"))
+        {
+            //Once enemy spotted, make sure this is logged in a gamemanager
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            //Once enemy leaves area, stop spotting
+        }
     }
 }
 
