@@ -15,6 +15,9 @@ public class EnemyMovement : MonoBehaviour
     int j;
     bool moving = false;
 
+    Vector2 targetPosition;
+    Vector2 finalPosition;
+
     private void Start()
     {
         j = 0;
@@ -29,11 +32,23 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log(PathFound.FinalPath[1].IsClaimed);
         Debug.Log(PathFound.TargetPosition.position);
         Debug.Log("/////////////////////////////////////");*/
-        if ((PathFound.FinalPath[0].Position == PathFound.TargetPosition.position) || (PathFound.FinalPath[1].Position == PathFound.TargetPosition.position))
+        targetPosition.x = PathFound.TargetPosition.position.x;
+        targetPosition.y = PathFound.TargetPosition.position.y;
+        finalPosition.x = PathFound.FinalTarget.position.x;
+        finalPosition.y = PathFound.FinalTarget.position.y;
+
+        if ((PathFound.FinalPath[0].Position == targetPosition) || (PathFound.FinalPath[1].Position == targetPosition))
         {
             //txt.AddText();
             PathFound.FinalPath[0].IsClaimed = false;
-            Destroy(gameObject);
+            if(targetPosition == finalPosition)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                //Change checkpoints
+            }
         }
         if (moving == false && PathFound.FinalPath != null)
         {
@@ -57,8 +72,9 @@ public class EnemyMovement : MonoBehaviour
     {
         CurrentNode = PathFound.FinalPath[0];
         CurrentNode.IsAgent = true;
+        Vector2 newTransform = transform.position;
         //Debug.Log("Current Position " + CurrentNode.Position);
-        if(CurrentNode.Position == transform.position)
+        if(CurrentNode.Position == newTransform)
         {
             if (PathFound.FinalPath[0].IsClaimed == true)
             {
@@ -70,8 +86,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 PathFound.FinalPath[1].IsClaimed = true;
                 //Debug.Log(NextNode.Position);
-                transform.position = Vector3.MoveTowards(transform.position, NextNode.Position, speed * Time.deltaTime);
-                PathFound.StartPosition.position = transform.position;
+                newTransform = Vector2.MoveTowards(newTransform, NextNode.Position, speed * Time.deltaTime);
+                PathFound.StartPosition.position = newTransform;
                 //Debug.Log(PathFound.StartPosition.position);
                 PreviousNode = CurrentNode;
                 CurrentNode = NextNode;
