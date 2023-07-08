@@ -13,28 +13,39 @@ public class EnemyCharacter : Character
         base.Start();
         ToggleVisible(false);
     }
-    /*private void OnTriggerStay2D(Collider2D collision)
+
+    private void Update()
     {
+        if (Time.time > lastAtk + atkRate)
+        {
+            lastAtk = Time.time;
+            
+        }
+    }
+    public override void Attack(GameObject opponent)
+    {
+        base.Attack(opponent);
+    
         //Check if unit in proximity
-        if (collision.CompareTag("Patroller"))
+        if (opponent.CompareTag("Patroller"))
         {
-            collision.GetComponent<Patroler>().TakeDamage(atk);
+            opponent.GetComponent<Patroler>().TakeDamage(atk);
         }
-        else if (collision.CompareTag("Runner"))
+        else if (opponent.CompareTag("Runner"))
         {
-            collision.GetComponent<Runner>().TakeDamage(atk);
+            opponent.GetComponent<Runner>().TakeDamage(atk);
         }
-        else if (collision.CompareTag("Knight"))
+        else if (opponent.CompareTag("Knight"))
         {
             //Check if the unit is within attack range
-            if (turn && (Vector2.Distance(gameObject.transform.position, collision.transform.position) <= atkRange))
+            if (turn && (Vector2.Distance(gameObject.transform.position, opponent.transform.position) <= atkRange))
             {
-                collision.GetComponent<Knight>().TakeDamage(atk);
-                turn = false;
+                opponent.GetComponent<Knight>().TakeDamage(atk);
+                turn = false;  
             }
 
         }
-    }*/
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -49,4 +60,8 @@ public class EnemyCharacter : Character
         gfx.SetActive(toggle);
         visible = toggle;
     }
+
+    
+
+
 }

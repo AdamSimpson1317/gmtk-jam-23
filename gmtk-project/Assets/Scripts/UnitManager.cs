@@ -38,7 +38,10 @@ public class UnitManager : MonoBehaviour
 
     private void Update()
     {
-        Spotted();
+        if (enemy)
+        {
+            Spotted();
+        }
     }
 
 }

@@ -4,9 +4,5 @@ using UnityEngine;
 
 public class Knight : Unit
 {
-    public override void Die()
-    {
-        base.Die();
-        Destroy(gameObject);
-    }
+
 }
