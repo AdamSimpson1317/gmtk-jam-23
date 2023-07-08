@@ -11,6 +11,12 @@ public class Unit : Character
     {
         base.Attack(opponent);
     }
+
+    public override void Start()
+    {
+        base.Start();
+        instance = GameObject.FindGameObjectWithTag("UnitManager").GetComponent<UnitManager>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Check if enemy is in the spot radius
