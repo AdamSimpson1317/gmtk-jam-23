@@ -74,12 +74,13 @@ public class FullGrid : MonoBehaviour
     void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
-        Vector3 bottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
+        Vector2 newTransform = transform.position;
+        Vector2 bottomLeft = newTransform - Vector2.right * gridWorldSize.x / 2 - Vector2.up * gridWorldSize.y / 2;
         for (int x = 0; x < gridSizeX; x++)
         {
             for (int y = gridSizeY - 1; y > -1; y--)
             {
-                Vector3 worldPoint = bottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
+                Vector2 worldPoint = bottomLeft + Vector2.right * (x * nodeDiameter + nodeRadius) + Vector2.up * (y * nodeDiameter + nodeRadius);
                 bool Wall = true;
                 int Free = 0;
                 bool Agent = false;
@@ -254,11 +255,11 @@ public class FullGrid : MonoBehaviour
         }
     }
 
-    public Node NodeWorldPosition(Vector3 a_WorldPosition)
+    public Node NodeWorldPosition(Vector2 a_WorldPosition)
     {
 
         float xpoint = Mathf.Clamp01(((a_WorldPosition.x + gridWorldSize.x / 2) / gridWorldSize.x));
-        float ypoint = Mathf.Clamp01(((a_WorldPosition.z + gridWorldSize.y / 2) / gridWorldSize.y));
+        float ypoint = Mathf.Clamp01(((a_WorldPosition.y + gridWorldSize.y / 2) / gridWorldSize.y));
 
         int x = Mathf.RoundToInt((gridSizeX - 1) * xpoint);
         int y = Mathf.RoundToInt((gridSizeY - 1) * ypoint);
@@ -366,7 +367,8 @@ public class FullGrid : MonoBehaviour
     //Test to see if the line is being drawn properly
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
+        Vector2 newTransform = transform.position;
+        Gizmos.DrawWireCube(newTransform, new Vector2(gridWorldSize.x, gridWorldSize.y));
         if(grid != null)
         {
             foreach(Node n in grid)
@@ -392,7 +394,7 @@ public class FullGrid : MonoBehaviour
                         Gizmos.color = Color.red;
                     }
                 }
-                Gizmos.DrawCube(n.Position, Vector3.one * (nodeDiameter - Distance));
+                Gizmos.DrawCube(n.Position, Vector2.one * (nodeDiameter - Distance));
             }
         }
 

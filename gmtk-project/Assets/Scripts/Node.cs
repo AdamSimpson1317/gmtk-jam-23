@@ -10,7 +10,7 @@ public class Node
     public bool IsClaimed; //Says if another Agent has claimed the node to move onto.
     public int IsFree; //Says if the node is not free (-1), free (0) or a part of a zone (1+).
 
-    public Vector3 Position; //World Position of node.
+    public Vector2 Position; //World Position of node.
 
     public Node Parent; //Previous node.
 
@@ -19,7 +19,7 @@ public class Node
 
     public int fCost { get { return gCost + hCost; } }
 
-    public Node(bool Wall, bool Agent, bool Claim, int Free, Vector3 Pos, int GridX, int GridY)
+    public Node(bool Wall, bool Agent, bool Claim, int Free, Vector2 Pos, int GridX, int GridY)
     {
         IsWall = Wall;
         IsAgent = Agent;
