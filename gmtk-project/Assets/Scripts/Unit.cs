@@ -38,13 +38,6 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public void Spot()
-    {
-        //Spot opponent
-        //Look at radius perimeter and spot the enemy
-        //Access player script to make them visible (while in radius)
-    }
-
     private void Die()
     {
         Debug.Log("Unit died");
