@@ -12,7 +12,9 @@ public class Character : MonoBehaviour
     public int atkRange;
     public State state = State.Idle;
 
-    public virtual void Start()
+    public virtual void Start() { }
+
+    public void Setup()
     {
         health = maxHealth;
     }
