@@ -32,4 +32,12 @@ public class Patroler : Unit
             dir *= -1;
         }
     }
+
+    public override void Die()
+    {
+        base.Die();
+        Destroy(gameObject);
+    }
+
+
 }
