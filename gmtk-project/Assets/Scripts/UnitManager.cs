@@ -4,18 +4,41 @@ using UnityEngine;
 
 public class UnitManager : MonoBehaviour
 {
-    public bool[] spotted;
+    //public static UnitManager instance;
 
-    public bool Spotted()
+    public int spottedCount = 0;
+    public EnemyCharacter enemy;
+
+    public void Spotted()
     {
-        for (int i = 0; i < spotted.Length; i++)
+
+        if (spottedCount > 0)
         {
-            if(spotted[i] == true)
-            {
-                return true;
-            }
+            enemy.ToggleVisible(true);
         }
-        return false;
+        else
+        {
+
+            enemy.ToggleVisible(false);
+        }
+    }
+
+    public void EditSpotted(bool add)
+    {
+        Debug.Log("test");
+        if (add)
+        {
+            spottedCount++;
+        }
+        else
+        {
+            spottedCount--;
+        }
+    }
+
+    private void Update()
+    {
+        Spotted();
     }
 
 }

@@ -5,12 +5,20 @@ using UnityEngine;
 public class Unit : Character
 {
     public int spotRadius;
+    public UnitManager instance;
+
+    public override void Attack(GameObject opponent)
+    {
+        base.Attack(opponent);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Check if enemy is in the spot radius
         if (collision.CompareTag("Enemy"))
         {
+            Debug.Log("Enemy Inbound");
             //Once enemy spotted, make sure this is logged in a gamemanager
+            instance.EditSpotted(true);
         }
     }
 
@@ -19,6 +27,8 @@ public class Unit : Character
         if (collision.CompareTag("Enemy"))
         {
             //Once enemy leaves area, stop spotting
+            instance.EditSpotted(false);
+
         }
     }
 }
