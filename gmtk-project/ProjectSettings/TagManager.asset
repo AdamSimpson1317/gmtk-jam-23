@@ -9,6 +9,7 @@ TagManager:
   - Knight
   - Runner
   - Patroller
+  - UnitManager
   layers:
   - Default
   - TransparentFX
