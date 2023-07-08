@@ -15,7 +15,9 @@ public class Unit : Character
     public override void Start()
     {
         base.Start();
-        instance = GameObject.FindGameObjectWithTag("UnitManager").GetComponent<UnitManager>();
+        Setup();
+        GetUnitManager();
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,6 +38,11 @@ public class Unit : Character
             instance.EditSpotted(false);
 
         }
+    }
+
+    public void GetUnitManager()
+    {
+        instance = GameObject.FindGameObjectWithTag("UnitManager").GetComponent<UnitManager>();
     }
 }
 

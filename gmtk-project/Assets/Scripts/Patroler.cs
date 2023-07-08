@@ -16,9 +16,12 @@ public class Patroler : Unit
         //Patrol area
     }
 
-    void start()
+    public override void Start()
     {
+        base.Setup();
+        GetUnitManager();
         startingY = transform.position.y;
+
     }
 
     void FixedUpdate()
