@@ -33,7 +33,14 @@ public class EnemyMovement : MonoBehaviour
         {
             //txt.AddText();
             PathFound.FinalPath[0].IsClaimed = false;
-            Destroy(gameObject);
+            if(PathFound.TargetPosition.position == PathFound.FinalTarget.position)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                //Change checkpoints
+            }
         }
         if (moving == false && PathFound.FinalPath != null)
         {

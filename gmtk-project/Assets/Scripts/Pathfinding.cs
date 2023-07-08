@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PathFinding : MonoBehaviour
 {
-    public Grid grid;
+    public FullGrid grid;
     public EnemyMovement Movement;
     public Transform StartPosition;
     public Transform TargetPosition;
+    public Transform CheckPoint1;
+    public Transform CheckPoint2;
+    public Transform CheckPoint3;
+    public Transform CheckPoint4;
+    public Transform FinalTarget;
 
     public List<Node> FinalPath = new List<Node>();
     public void ForcedStart()

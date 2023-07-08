@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class FullGrid : MonoBehaviour
 {
     public LayerMask WallMask;
     public LayerMask AgentMask;
