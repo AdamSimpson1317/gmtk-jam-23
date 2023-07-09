@@ -112,7 +112,7 @@ public class EnemyCharacter : Character
 
     public void ToggleVisible(bool toggle)
     {
-        //gfx.SetActive(toggle);
+        gfx.SetActive(toggle);
         visible = toggle;
     }
 
