@@ -54870,7 +54870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Bob
-  health: 1
+  health: 30
   maxHealth: 10
   atk: 1
   movementPoints: 1
@@ -55047,7 +55047,7 @@ MonoBehaviour:
   - {fileID: 7026428982936274981, guid: a7d99b86639fb3449b998a554f125cad, type: 3}
   - {fileID: 6328813665195256527, guid: db52b4e7a373d4c41ba395b8473bde8d, type: 3}
   - {fileID: 3140160432958267819, guid: 93115998d6fdf114db4838fa186d08d7, type: 3}
-  unitCosts: c80000006400000064000000
+  unitCosts: c800000064000000c8000000
   unitMan: {fileID: 1951989937}
   goldText: {fileID: 600185175}
   lastGold: -10
@@ -55125,7 +55125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100
+  m_text: 200
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c484c52a9c0999342bb86fb68302c8ff, type: 2}
   m_sharedMaterial: {fileID: -7481299581001858193, guid: c484c52a9c0999342bb86fb68302c8ff, type: 2}
