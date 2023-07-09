@@ -14,6 +14,7 @@ public class UnitDrag : MonoBehaviour
     public int unitIndex = 0;
     public GameObject[] prefabs;
     public int[] unitCosts;
+    public UnitManager unitMan;
 
     //UI
     public TextMeshProUGUI goldText;
@@ -25,7 +26,8 @@ public class UnitDrag : MonoBehaviour
     {
         Vector3 mp = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         location = tilemap.WorldToCell(mp);
-        Instantiate(prefabs[unitIndex], location, Quaternion.identity);
+        GameObject newUnit = Instantiate(prefabs[unitIndex], location, Quaternion.identity);
+        unitMan.enemies.Add(newUnit);
 
     }
 

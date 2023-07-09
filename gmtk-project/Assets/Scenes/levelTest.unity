@@ -13766,15 +13766,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Bob
-  health: 3
+  health: 100
   maxHealth: 10
   atk: 1
   movementPoints: 1
   atkRange: 2
   state: 0
+  lastAtk: -1
+  atkRate: 1
   visible: 0
   turn: 1
   gfx: {fileID: 115164132}
+  unitMan: {fileID: 1951989937}
 --- !u!4 &1509582425
 Transform:
   m_ObjectHideFlags: 0
@@ -13924,6 +13927,7 @@ MonoBehaviour:
   - {fileID: 6328813665195256527, guid: db52b4e7a373d4c41ba395b8473bde8d, type: 3}
   - {fileID: 3140160432958267819, guid: 93115998d6fdf114db4838fa186d08d7, type: 3}
   unitCosts: c80000006400000064000000
+  unitMan: {fileID: 1951989937}
   goldText: {fileID: 600185175}
   lastGold: -10
   goldRate: 10
@@ -14319,6 +14323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spottedCount: 0
   enemy: {fileID: 1509582423}
+  enemies: []
 --- !u!4 &1951989938
 Transform:
   m_ObjectHideFlags: 0

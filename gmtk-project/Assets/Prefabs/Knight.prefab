@@ -104,10 +104,15 @@ MonoBehaviour:
   maxHealth: 3
   atk: 3
   movementPoints: 1
-  atkRange: 0
+  atkRange: 1
   state: 0
+  lastAtk: -1
+  atkRate: 1
   spotRadius: 1
   instance: {fileID: 0}
+  turn: 0
+  enemyInRange: 0
+  enemy: {fileID: 0}
 --- !u!61 &9079796787113759358
 BoxCollider2D:
   m_ObjectHideFlags: 0

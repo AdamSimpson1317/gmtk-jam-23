@@ -12,6 +12,9 @@ public class Character : MonoBehaviour
     public int atkRange;
     public State state = State.Idle;
 
+    public float lastAtk = -1f;
+    public float atkRate = 1f;
+
     public virtual void Start() { }
 
     public void Setup()
@@ -40,8 +43,13 @@ public class Character : MonoBehaviour
         }
     }
 
-    public virtual void Die() { }
-       
+    public virtual void Die() 
+    {
+        Destroy(gameObject);
+    }
+
+    
+
 }
 
 public enum State
