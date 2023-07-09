@@ -50,7 +50,7 @@ public class FullGrid : MonoBehaviour
         //Debug.Log(AgentsList.Count);
         while (AgentsList.Count != i)
         {
-            CurrentAgent = AgentsList[i];
+            CurrentAgent = AgentsList[0];
             //Debug.Log(CurrentAgent.name);
             CurrentAgent.GetComponent<PathFinding>().ForcedStart();
             //CurrentAgent.Pathing.ForcedStart();                        
