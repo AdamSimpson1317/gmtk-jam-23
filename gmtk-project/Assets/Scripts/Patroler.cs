@@ -21,6 +21,7 @@ public class Patroler : Unit
         base.Setup();
         GetUnitManager();
         startingY = transform.position.y;
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
 
     }
 

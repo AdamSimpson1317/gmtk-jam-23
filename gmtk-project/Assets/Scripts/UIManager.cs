@@ -14,6 +14,11 @@ public class UIManager : MonoBehaviour
         ToggleLose(false);
     }
 
+    public void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void ToggleWin(bool toggle)
     {
         if (toggle)
