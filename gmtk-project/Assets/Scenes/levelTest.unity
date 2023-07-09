@@ -13577,7 +13577,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   gridWorldSize: {x: 50, y: 50}
-  nodeRadius: 1
+  nodeRadius: 0.5
   Distance: 0
   AgentsList: []
 --- !u!4 &860244792
