@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Steve
-  health: 0
-  maxHealth: 5
-  atk: 1
+  health: 10
+  maxHealth: 10
+  atk: 2
   movementPoints: 3
   atkRange: 1
   state: 0

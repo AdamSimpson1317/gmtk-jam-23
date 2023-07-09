@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Winston
-  health: 3
-  maxHealth: 3
+  health: 15
+  maxHealth: 15
   atk: 3
   movementPoints: 1
   atkRange: 1
