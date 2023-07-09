@@ -8,6 +8,7 @@ public class UnitManager : MonoBehaviour
 
     public int spottedCount = 0;
     public EnemyCharacter enemy;
+    public List<GameObject> enemies = new List<GameObject>();
 
     public void Spotted()
     {

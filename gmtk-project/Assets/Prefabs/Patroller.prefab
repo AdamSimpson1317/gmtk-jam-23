@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Steve
   health: 0
-  maxHealth: 2
+  maxHealth: 5
   atk: 1
   movementPoints: 3
   atkRange: 1

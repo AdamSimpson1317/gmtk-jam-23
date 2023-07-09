@@ -78,6 +78,14 @@ public class Unit : Character
         }
     }
 
+    public override void Die()
+    {
+        base.Die();
+        instance.enemies.Remove(gameObject);
+        Destroy(gameObject);
+        
+    }
+
     public void GetUnitManager()
     {
         instance = GameObject.FindGameObjectWithTag("UnitManager").GetComponent<UnitManager>();
