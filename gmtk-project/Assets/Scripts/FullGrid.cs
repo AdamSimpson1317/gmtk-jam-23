@@ -38,22 +38,14 @@ public class FullGrid : MonoBehaviour
         set = new SetSorter();
         nodeDiameter = nodeRadius * 2;
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter);
-        //Debug.Log(gridWorldSize.x);
-        //Debug.Log(gridSizeX);
         gridSizeY = Mathf.RoundToInt((gridWorldSize.y / nodeDiameter));
         CreateGrid();
-        //Decomposition algorithm
-        //Decomposition();
-        Debug.Log("Passed");
         //Create Agents and puts into a list.
         CreateAgentList();
-        //Debug.Log(AgentsList.Count);
         while (AgentsList.Count != i)
         {
             CurrentAgent = AgentsList[0];
-            //Debug.Log(CurrentAgent.name);
-            CurrentAgent.GetComponent<PathFinding>().ForcedStart();
-            //CurrentAgent.Pathing.ForcedStart();                        
+            CurrentAgent.GetComponent<PathFinding>().ForcedStart();                     
             i++;
         }
     }
@@ -99,159 +91,11 @@ public class FullGrid : MonoBehaviour
                 }
                 if (Free==0)
                 {
-                    //Debug.Log("Adds");
-                    //Debug.Log(x);
-                    //Debug.Log(y);
                     set.Add(x, y);
                 }
 
                 grid[x, y] = new Node(Wall, Agent, Claim, Free, worldPoint, x, y);
             }
-        }
-    }
-
-    public void Decomposition()
-    {
-        Debug.Log("Decompostion");
-        //Node[,] zone = new Node[gridSizeX, gridSizeY];
-        int x;
-        int y;
-        List<int> xy = new List<int>();
-        //4
-        CurrentZone = 1;
-        //5
-        while (set.CheckEmpty() == false) { 
-            /*if (grid[x, y].IsFree != 0)
-            {
-                continue;
-            }*/
-            //6
-            //Debug.Log(SetSorter.NullCheck());
-            //Debug.Log(xy);
-            xy = set.GetNextNode();
-            //Debug.Log(xy);
-            x = xy[0];
-            xLeft = x;
-            y = xy[1];
-            TLNode = grid[x, y];
-            //7
-            shrunkR = shrunkL = false;
-            //8 and 9
-            while (infinite == true)
-            {
-                //Debug.Log(CurrentZone);
-                //10
-                x = xLeft;
-                //Debug.Log(xLeft);
-                //11
-                //Debug.Log(x);
-                //Debug.Log(y);
-                grid[x, y].IsFree = CurrentZone;
-                set.Remove(x, y);
-                //Debug.Log(zone[x, y]);
-                //12
-                //Debug.Log(grid[x + 1, y]);
-                //Debug.Log(grid[x + 1, y - 1]);
-                i += 1;
-                //Debug.Log(("Run ", i));
-                while (grid[x + 1, y].IsFree == 0 && grid[x + 1, y + 1].IsFree != 0)
-                {
-                    //13
-                    x += 1;
-                    //14
-                    grid[x, y].IsFree = CurrentZone;
-
-                    //if (grid[x,y].IsWall == false)
-                    //{
-                    set.Remove(x, y);
-                    //}
-                    //15
-                }
-                //16 and 17
-                if (grid[x + 1, y + 1].IsFree == CurrentZone)
-                {
-                    //18
-                    shrunkR = true;
-                }
-                //19
-                else if (grid[x, y + 1].IsFree != CurrentZone && shrunkR == true)
-                {
-                    //20 and 21
-                    //Debug.Log(x);
-                    //Debug.Log(y);
-                    while (grid[x, y].IsFree == CurrentZone)
-                    {
-                        //Debug.Log(x);
-                        //Debug.Log(y);
-                        //22
-                        grid[x, y].IsFree = 0;
-                        set.Add(x, y);
-                        //23
-                        x -= 1;
-                        //Debug.Log(grid[x-1,y].IsFree);
-                        //24
-                    }
-                    //25
-                    break;
-                    //26
-                }
-                //27 and 28
-                /*if (y > 0)
-                {
-                    (x, y) = (xLeft, y - 1);
-                }
-                else
-                {
-                    (x, y) = (xLeft, y);
-                }*/
-                (x, y) = (xLeft, y - 1);
-                //29 and 30
-                //Debug.Log(x);
-                //Debug.Log(y);
-                if (y == 0)
-                {
-                    break;
-                }
-                //Debug.Log(CurrentZone);
-                //Debug.Log("break");
-                //Debug.Log(grid[x, y].IsFree);
-                while (grid[x, y].IsFree != 0 && grid[x, y + 1].IsFree == CurrentZone)
-                {
-                    //31
-                    x += 1;
-                    //32
-                }
-                //Debug.Log(x);
-                //33 and 34
-                if (x > 0)
-                {
-                    while (grid[x - 1, y].IsFree == 0 && grid[x - 1, y + 1].IsFree != 0)
-                    {
-                        //35
-                        x -= 1;
-                        //36
-                    }
-
-                    //37 and 38
-                    if (grid[x - 1, y + 1].IsFree == CurrentZone)
-                    {
-                        //39
-                        shrunkL = true;
-                    }
-                    //40
-                    else if (grid[x, y + 1].IsFree != CurrentZone && shrunkL == true)
-                    {
-                        //41
-                        break;
-                        //42
-                    }
-                }
-            }
-            //43 and 44
-            //Debug.Log("break - Out of Loop");
-            i = 0;
-            CurrentZone = CurrentZone + 1;
-            
         }
     }
 
@@ -364,6 +208,7 @@ public class FullGrid : MonoBehaviour
         */
         return NeighbouringNodes;
     }
+    
     //Test to see if the line is being drawn properly
     private void OnDrawGizmos()
     {
