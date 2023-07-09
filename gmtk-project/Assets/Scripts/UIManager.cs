@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject winPanel;
     public GameObject losePanel;
+    public GameObject reloadBtn;
     public void Return()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour
 
     public void Reload()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
