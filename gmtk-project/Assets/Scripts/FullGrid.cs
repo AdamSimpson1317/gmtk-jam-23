@@ -86,14 +86,14 @@ public class FullGrid : MonoBehaviour
                 bool Agent = false;
                 bool Claim = false;
 
-                if (Physics.CheckSphere(worldPoint, nodeRadius, WallMask))
+                if (Physics2D.OverlapCircle(worldPoint, nodeRadius, WallMask))
                 {
                     Wall = false;
                     Free = -1;
                     
                 }
 
-                if (Physics.CheckSphere(worldPoint, nodeRadius, AgentMask))
+                if (Physics2D.OverlapCircle(worldPoint, nodeRadius, AgentMask))
                 {
                     Agent = false;
                 }
