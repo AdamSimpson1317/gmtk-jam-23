@@ -8,11 +8,17 @@ public class EnemyCharacter : Character
     public bool turn = true;
     public GameObject gfx;
     public UnitManager unitMan;
+    public Transform[] spawns;
 
+    private void Awake()
+    {
+        GetSpawn();
+    }
     public override void Start()
     {
         base.Start();
         ToggleVisible(false);
+        
     }
 
     private void Update()
@@ -94,6 +100,12 @@ public class EnemyCharacter : Character
     {
         gfx.SetActive(toggle);
         visible = toggle;
+    }
+
+    public void GetSpawn()
+    {
+        int rng = Random.Range(0, spawns.Length);
+        transform.position = spawns[rng].position;
     }
 
     
