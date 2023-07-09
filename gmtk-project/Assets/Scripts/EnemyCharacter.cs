@@ -9,12 +9,15 @@ public class EnemyCharacter : Character
     public GameObject gfx;
     public UnitManager unitMan;
     public Transform[] spawns;
+    public Transform[] flagSpawns;
     public UIManager uiMan;
     public Animator anim;
     Vector3 Position;
+    public GameObject flag;
 
     private void Awake()
     {
+        FlagSpawn();
         GetSpawn();
     }
     public override void Start()
@@ -121,7 +124,15 @@ public class EnemyCharacter : Character
         transform.position = Position;
     }
 
-    
+    public void FlagSpawn()
+    {
+        int rng = Random.Range(0, flagSpawns.Length);
+        //Position.x = (spawns[rng].position.x + 0.5f);
+        //Position.y = (spawns[rng].position.y + 0.5f);
+        flag.transform.position = flagSpawns[rng].position;
+    }
+
+
 
 
 }

@@ -18,6 +18,8 @@ public class EnemyMovement : MonoBehaviour
     Vector2 targetPosition;
     Vector2 finalPosition;
 
+    public UIManager uiMan;
+
     private void Start()
     {
         j = 0;
@@ -44,6 +46,8 @@ public class EnemyMovement : MonoBehaviour
             if(targetPosition == finalPosition)
             {
                 //Destroy(gameObject);
+                //Lose game
+                uiMan.ToggleLose(true);
             }
             else
             {
