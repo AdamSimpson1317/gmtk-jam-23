@@ -8,13 +8,13 @@ public class PathFinding : MonoBehaviour
     public EnemyMovement Movement;
     public Transform StartPosition;
     public Transform TargetPosition;
-    public Transform CheckPoint1;
-    public Transform CheckPoint2;
-    public Transform CheckPoint3;
-    public Transform CheckPoint4;
+    //public Transform CheckPoint1;
+    //public Transform CheckPoint2;
+    //public Transform CheckPoint3;
+    //public Transform CheckPoint4;
     public Transform FinalTarget;
 
-    public List<Transform> CheckPoints = new List<Transform>();
+    //public List<Transform> CheckPoints = new List<Transform>();
 
     public List<Node> FinalPath = new List<Node>();
     public void ForcedStart()
@@ -26,8 +26,8 @@ public class PathFinding : MonoBehaviour
         //CheckPoints.Add(FinalTarget);
         
         Waiting();
-        FindPath(StartPosition.position, CheckPoint1.position);
-        TargetPosition = CheckPoint1;
+        FindPath(StartPosition.position, FinalTarget.position);
+        TargetPosition = FinalTarget;
         GetFinalPath(grid.NodeWorldPosition(StartPosition.position), grid.NodeWorldPosition(FinalTarget.position));
         /*FindPath(CheckPoint1.position, CheckPoint2.position);
         TargetPosition = CheckPoint2;
