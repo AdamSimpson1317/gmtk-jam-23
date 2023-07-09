@@ -8,6 +8,9 @@ public class Patroler : Unit
     public float speed = 0.8f;
     public float range = 3f;
 
+    public float nodeRadius;
+    public LayerMask WallMask;
+
     float startingY;
     int dir = 1;
 
@@ -28,7 +31,9 @@ public class Patroler : Unit
     void FixedUpdate()
     {
         transform.Translate(Vector2.up * speed * Time.deltaTime * dir);
-        if(transform.position.y < startingY || transform.position.y > startingY + range)
+        Vector2 worldPoint = transform.position;
+
+        if(Physics2D.OverlapCircle(worldPoint, nodeRadius, WallMask))
         {
             dir *= -1;
         }
