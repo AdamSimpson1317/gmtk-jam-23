@@ -116,6 +116,10 @@ MonoBehaviour:
   enemy: {fileID: 0}
   speed: 0.8
   range: 3
+  nodeRadius: 0.5
+  WallMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &7969963448415047621
 BoxCollider2D:
   m_ObjectHideFlags: 0
