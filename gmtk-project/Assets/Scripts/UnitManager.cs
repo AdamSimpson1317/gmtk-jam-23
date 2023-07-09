@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UnitManager : MonoBehaviour
 {
-    //public static UnitManager instance;
-
     public int spottedCount = 0;
     public EnemyCharacter enemy;
     public List<GameObject> enemies = new List<GameObject>();

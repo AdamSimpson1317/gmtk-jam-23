@@ -41,7 +41,6 @@ public class UnitDrag : MonoBehaviour
                 gold -= unitCosts[unitIndex];
                 UpdateUI();
                 Dropper();
-                //Update UI
             }
             
             
