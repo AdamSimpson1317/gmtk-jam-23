@@ -9,6 +9,7 @@ public class EnemyCharacter : Character
     public GameObject gfx;
     public UnitManager unitMan;
     public Transform[] spawns;
+    public UIManager uiMan;
 
     private void Awake()
     {
@@ -94,6 +95,13 @@ public class EnemyCharacter : Character
             //}
 
         }
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        Destroy(gameObject);
+        uiMan.ToggleWin(true);
     }
 
     public void ToggleVisible(bool toggle)
