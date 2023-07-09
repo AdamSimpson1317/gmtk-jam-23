@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using TMPro;
 
 public class UnitDrag : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class UnitDrag : MonoBehaviour
     public int unitIndex = 0;
     public GameObject[] prefabs;
     public int[] unitCosts;
+
+    //UI
+    public TextMeshProUGUI goldText;
+
+    public float lastGold = -1f;
+    public float goldRate = 1f;
 
     public void Dropper()
     {
@@ -30,6 +37,7 @@ public class UnitDrag : MonoBehaviour
             if(unitCosts[unitIndex] <= gold)
             {
                 gold -= unitCosts[unitIndex];
+                UpdateUI();
                 Dropper();
                 //Update UI
             }
@@ -49,5 +57,25 @@ public class UnitDrag : MonoBehaviour
         {
             unitIndex = 2;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if(Time.time > lastGold + goldRate)
+        {
+            lastGold = Time.time;
+            AddGold(100);
+            UpdateUI();
+        }
+    }
+
+    public void AddGold(int influx)
+    {
+        gold += influx;
+    }
+
+    public void UpdateUI()
+    {
+        goldText.text = "Gold: "+ gold.ToString();
     }
 }

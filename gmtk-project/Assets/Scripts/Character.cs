@@ -40,17 +40,8 @@ public class Character : MonoBehaviour
         }
     }
 
-    private void Die()
-    {
-        Debug.Log("Unit died");
-    }
-
-    public void Test()
-    {
-        Debug.Log("TESTING INHERITENCE");
-    }
-
-    
+    public virtual void Die() { }
+       
 }
 
 public enum State

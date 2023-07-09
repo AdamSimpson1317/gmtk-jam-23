@@ -6,6 +6,7 @@ public class Unit : Character
 {
     public int spotRadius;
     public UnitManager instance;
+    public bool turn;
 
     public override void Attack(GameObject opponent)
     {
