@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Steve
-  health: 10
-  maxHealth: 10
+  health: 5
+  maxHealth: 5
   atk: 2
   movementPoints: 3
   atkRange: 1
@@ -163,7 +163,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 2, y: 5}
   m_EdgeRadius: 0
 --- !u!50 &7723917845391922686
 Rigidbody2D:
