@@ -10,6 +10,7 @@ public class EnemyCharacter : Character
     public UnitManager unitMan;
     public Transform[] spawns;
     public UIManager uiMan;
+    public Animator anim;
 
     private void Awake()
     {
@@ -24,7 +25,6 @@ public class EnemyCharacter : Character
 
     private void Update()
     {
-        Debug.Log("working ");
         if (unitMan.enemies.Count > 0)
         {
             for (int i = 0; i < unitMan.enemies.Count; i++)
@@ -42,9 +42,11 @@ public class EnemyCharacter : Character
                     Debug.Log("In");
                     if ((Time.time > lastAtk + atkRate))
                     {
+                        anim.SetBool("Attacking", true);
                         Debug.Log("IN IN");
                         lastAtk = Time.time;
                         Attack(unitMan.enemies[0]);
+                        anim.SetBool("Attacking", false);
                     }
                 }
             }
