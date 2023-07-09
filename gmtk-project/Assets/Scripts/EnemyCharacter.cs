@@ -11,7 +11,6 @@ public class EnemyCharacter : Character
     public Transform[] spawns;
     public UIManager uiMan;
     public Animator anim;
-    Vector3 Position;
 
     private void Awake()
     {
@@ -116,9 +115,7 @@ public class EnemyCharacter : Character
     public void GetSpawn()
     {
         int rng = Random.Range(0, spawns.Length);
-        Position.x = spawns[rng].position.x + 0.5f;
-        Position.y = spawns[rng].position.y + 0.5f;
-        transform.position = Position;
+        transform.position = spawns[rng].position;
     }
 
     

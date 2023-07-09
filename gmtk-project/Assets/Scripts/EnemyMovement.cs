@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     Node NextNode;
     Node CurrentNode;
     Node PreviousNode;
-    int speed = 50;
+    int speed = 10000;
     int i;
     int j;
     bool moving = false;
@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
         j = 0;
         //TargetNode.Position = PathFound.TargetPosition.position;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         /*Debug.Log(PathFound.FinalPath == null);
         Debug.Log(PathFound.FinalPath[0].Position);
@@ -58,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             j += 1;
-            if(j == 100)
+            if(j == 4)
             {
                 moving = false;
                 //Adding this line instead of later, where !!!!!!! comment is, improves perfomance, talk about this in dissertation. 
@@ -105,11 +105,11 @@ public class EnemyMovement : MonoBehaviour
             {
                 //!!!!!!!! This is very important to talk about in dissertation, Removing next line and similar line at the end of this, improves performance?
                 //PathFound.ForcedStart();
-                yield return new WaitForSeconds(50f);
+                yield return new WaitForSeconds(0.1f);
             }
 
             //PathFound.ForcedStart();
-            yield return new WaitForSeconds(50f);
+            yield return new WaitForSeconds(0.1f);
         }
         
     }
