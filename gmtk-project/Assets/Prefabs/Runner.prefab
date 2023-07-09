@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: Speed
-  health: 1
+  health: 5
   maxHealth: 5
   atk: 1
   movementPoints: 3

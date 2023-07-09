@@ -13695,6 +13695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winPanel: {fileID: 1407613486}
   losePanel: {fileID: 998118831}
+  reloadBtn: {fileID: 0}
 --- !u!4 &927821897
 Transform:
   m_ObjectHideFlags: 0
@@ -15663,7 +15664,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 53ca002d7afe950459f345a537ee3d30, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
