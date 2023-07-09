@@ -24,13 +24,12 @@ public class Character : MonoBehaviour
 
     public void Move()
     {
-        //Move unit by movement points
+        
     }
 
     public virtual void Attack(GameObject opponent)
     {
-        //Attack opponent
-        //Get enemy script and use TakeDamage() to remove health
+        
     }
 
     public void TakeDamage(int damage)
